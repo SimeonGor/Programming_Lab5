@@ -21,7 +21,6 @@ public class AddCommand extends Command {
         while (true) {
             try {
                 String name = client.getParameters("name");
-                System.out.println(name);
                 newEl.setName(name);
                 break;
             } catch (InvalidArgument e) {
