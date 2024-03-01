@@ -65,6 +65,7 @@ public class MyCollection {
         collection.add(e);
         maxId = Long.max(maxId, e.getId()) + 1;
         if (maxId < 0) maxId = 0;
+        sort();
     }
 
     public void clear() {

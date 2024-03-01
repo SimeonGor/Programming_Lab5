@@ -25,6 +25,7 @@ public class CollectionManager {
             collection.setCreationDate();
         }
         collection.sort();
+        collection.setMaxId();
     }
 
     public void add(Organization e) {
