@@ -1,0 +1,40 @@
+{
+  "collection":[
+    {
+      "id": 0,
+      "name": "name",
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "creationDate": "2024-02-15",
+      "annualTurnover": 0.4,
+      "type": "COMMERCIAL",
+      "postalAddress": "123456789"
+    },
+    {
+      "id": 1,
+      "name": "name",
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "creationDate": "2024-02-15",
+      "annualTurnover": 0.4,
+      "type": "COMMERCIAL",
+      "postalAddress": "123456789"
+    },
+    {
+      "id": 2,
+      "name": "name",
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "creationDate": "2024-02-15",
+      "annualTurnover": 0.4,
+      "type": "COMMERCIAL",
+      "postalAddress": "123456789"
+    }
+  ]
+}

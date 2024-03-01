@@ -1,0 +1,43 @@
+{
+  "order": true,
+  "creationDate": "2024-02-28",
+  "modifiedDate": "2024-02-28",
+  "collection": [
+    {
+      "id": 0,
+      "name": "name",
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "creationDate": "2024-02-15",
+      "annualTurnover": 0.4,
+      "type": "public",
+      "postalAddress": "123456789"
+    },
+    {
+      "id": 1,
+      "name": "name",
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "creationDate": "2024-02-15",
+      "annualTurnover": 0.4,
+      "type": "commercial",
+      "postalAddress": "987654321"
+    },
+    {
+      "id": 2,
+      "name": "name",
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "creationDate": "2024-02-15",
+      "annualTurnover": 0.4,
+      "type": "PLC",
+      "postalAddress": "234567890"
+    }
+  ]
+}
