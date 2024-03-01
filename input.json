@@ -1,0 +1,19 @@
+{
+  "order": true,
+  "creationDate": "2024-03-01",
+  "maxId": 2,
+  "collection": [
+    {
+      "id": 1,
+      "name": "qw",
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "creationDate": "2024-03-01",
+      "annualTurnover": 1.0,
+      "type": "PUBLIC",
+      "postalAddress": ""
+    }
+  ]
+}

@@ -3,9 +3,15 @@ package Lab5.Collection;
 import Lab5.Exceptions.InvalidArgument;
 
 public class Address {
-    public Address() {}
+    public Address() {
+        zipCode = null;
+    }
     public Address(String zipCode) {
-        this.zipCode = zipCode;
+        try {
+            setZipCode(zipCode);
+        } catch (InvalidArgument e) {
+            zipCode = null;
+        }
     }
     private String zipCode; //Длина строки должна быть не меньше 9, Поле может быть null
 

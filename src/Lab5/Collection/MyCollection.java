@@ -19,6 +19,10 @@ public class MyCollection {
     }
 
     public void setMaxId() {
+        if (collection.isEmpty()) {
+            maxId = -1;
+            return;
+        }
         maxId = Collections.max(collection, (o1, o2) -> Long.compare(o1.getId(), o2.getId())).getId();
     }
 
@@ -60,6 +64,7 @@ public class MyCollection {
     public void clear() {
         collection.clear();
         modifiedDate = LocalDate.now();
+        maxId = -1;
     }
 
     public void removeByID(long id) {
