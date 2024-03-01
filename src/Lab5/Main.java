@@ -28,6 +28,7 @@ public class Main {
             server.setCommand(new PrintFieldDescendingPostalAddressCommand(server));
             server.setCommand(new AddCommand(server));
             server.setCommand(new UpdateCommand(server));
+            server.setCommand(new AddIfMaxCommand(server));
 
             Client client = new Client(server);
             client.main_thread();

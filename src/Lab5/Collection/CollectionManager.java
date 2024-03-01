@@ -66,6 +66,14 @@ public class CollectionManager {
         return Collections.min(collection.getCollection(), comp);
     }
 
+    public Organization maxIf(Comparator<Organization> comp) {
+        return Collections.max(collection.getCollection(), comp);
+    }
+
+    public Comparator<Organization> getComparator() {
+        return collection.getComparator();
+    }
+
     public MyCollection greaterThan(Predicate<Organization> predicate) {
         MyCollection result = new MyCollection();
         for (var e : collection.getCollection()) {

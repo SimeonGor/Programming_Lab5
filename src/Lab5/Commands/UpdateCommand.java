@@ -23,6 +23,8 @@ public class UpdateCommand extends Command {
             newElement.setId(id);
 
             collectionManager.replace(id, newElement);
+
+            client.receiveResponse(new Response(true, String.format("The item with id %s has been successful updated", id)));
         } catch (NumberFormatException e) {
             client.receiveResponse(new Response(false, "The id must be an integer"));
         } catch (InvalidArgument e) {

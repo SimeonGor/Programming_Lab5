@@ -21,6 +21,6 @@ public class AddCommand extends Command {
         newEl.setId(collectionManager.getCollection().genId());
         collectionManager.add(newEl);
 
-        client.receiveResponse(new Response(true, "The element has been successful added to the collection"));
+        client.receiveResponse(new Response(true, "The item has been successful added to the collection"));
     }
 }

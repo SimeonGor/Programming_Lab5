@@ -8,7 +8,22 @@ import java.util.Comparator;
 import java.util.Vector;
 
 public class MyCollection {
-    transient Comparator<Organization> comparator = (o1, o2) -> Long.compare(o1.getId(), o2.getId());
+    transient Comparator<Organization> comparator = new Comparator<Organization>() {
+        @Override
+        public int compare(Organization o1, Organization o2) {
+            if (o1.getAnnualTurnover() - o2.getAnnualTurnover() < 0) {
+                return -1;
+            }
+            else {
+               if (o1.getName().compareTo(o2.getName()) <= 0) {
+                   return 0;
+               }
+               else  {
+                   return 1;
+               }
+            }
+        }
+    };
 
     private boolean order = true; // true - in ascending order, false - in descending order
     private LocalDate creationDate;
@@ -73,11 +88,16 @@ public class MyCollection {
         boolean isFounded = collection.removeIf((o1) -> o1.getId() == id);
 
         if (!isFounded) {
-            throw new InvalidArgument("There is no item with id %s in the collection");
+            throw new InvalidArgument(String.format("There is no item with id %s in the collection", id));
         }
         else {
             collection.add(el);
+            sort();
         }
+    }
+
+    public Comparator<Organization> getComparator() {
+        return comparator;
     }
 
     public void removeByID(long id) {
@@ -120,6 +140,7 @@ public class MyCollection {
         StringBuilder result = new StringBuilder();
         result.append(header).append("\n");
         int i = 1;
+        reverse();
         for (var e : collection) {
             result.append(String.format(template,
                         i++,
@@ -134,6 +155,7 @@ public class MyCollection {
                         ))
                     .append("\n");
         }
+        reverse();
         return result.substring(0, result.length() - 1);
     }
 }
