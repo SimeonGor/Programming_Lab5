@@ -1,6 +1,7 @@
 package Lab5.Commands;
 
 import Lab5.Client;
+import Lab5.Collection.CollectionManager;
 import Lab5.Response;
 import Lab5.Server;
 
@@ -15,10 +16,16 @@ public class RemoveByIDCommand extends Command {
 
     @Override
     public void execute(String parameters, Client client) {
+        CollectionManager collectionManager = server.getCollectionManager();
+        if (collectionManager.isEmpty()) {
+            client.receiveResponse(new Response(false, "The collection is empty"));
+            return;
+        }
+
         try {
             long id = getParameters(parameters);
-            server.getCollectionManager().removeByID(id);
-            client.receiveResponse(new Response(true, String.format("The item with id %d has been successfully deleted", id)));
+            collectionManager.removeByID(id);
+            client.receiveResponse(new Response(true, String.format("The item with id %d is no longer in the collection", id)));
         }
         catch (NumberFormatException e) {
             client.receiveResponse(new Response(false, "The id must be an integer"));

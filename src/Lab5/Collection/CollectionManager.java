@@ -22,6 +22,7 @@ public class CollectionManager {
         collection = collectionLoader.load(path, MyCollection.class);
         if (collection == null) {
             collection = new MyCollection();
+            collection.setCreationDate();
         }
         collection.sort();
     }

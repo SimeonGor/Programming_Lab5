@@ -24,6 +24,10 @@ public class MyCollection {
     private LocalDate modifiedDate;
     private final Vector<Organization> collection;
 
+    public void setCreationDate() {
+        creationDate = LocalDate.now();
+    }
+
     public boolean isOrdered() {
         return order;
     }

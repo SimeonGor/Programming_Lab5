@@ -13,9 +13,8 @@ public class HelpCommand extends Command {
     public void execute(String params, Client client) {
         StringBuilder t = new StringBuilder();
         for (var i : server.getCommands()) {
-            t.append("\t\u001B[1m").append(i.getName()).append("\u001B[0m ")
-                    .append("\u001B[4m").append(i.getParameters()).append("\u001B[0m ").append("\t")
-                    .append(i.getDescription()).append("\n");
+            t.append(String.format("\t\u001B[1m%-40s\u001B[0m \u001B[3m%-10s\u001B[0m %s\n",
+                    i.getName(), i.getParameters(), i.getDescription()));
         }
 
         client.receiveResponse(new Response(true, t.substring(0, t.length() - 1)));

@@ -1,6 +1,7 @@
 package Lab5.Commands;
 
 import Lab5.Client;
+import Lab5.Collection.CollectionManager;
 import Lab5.Response;
 import Lab5.Server;
 
@@ -15,9 +16,15 @@ public class RemoveAtCommand extends Command {
 
     @Override
     public void execute(String parameters, Client client) {
+        CollectionManager collectionManager = server.getCollectionManager();
+        if (collectionManager.isEmpty()) {
+            client.receiveResponse(new Response(false, "The collection is empty"));
+            return;
+        }
+
         try {
             int index = getParameters(parameters) - 1;
-            server.getCollectionManager().removeAt(index);
+            collectionManager.removeAt(index);
             client.receiveResponse(new Response(true, String.format("The item by index %d has been successfully deleted", index)));
         }
         catch (NumberFormatException e) {

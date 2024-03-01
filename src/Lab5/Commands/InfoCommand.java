@@ -17,7 +17,7 @@ public class InfoCommand extends Command {
         StringBuilder result = new StringBuilder();
 
         if (collectionManager.isEmpty()) {
-            result.append("Collection is empty");
+            result.append("The collection is empty");
         }
         else {
             result.append("Type: ").append(collectionManager.getTypeOfElement())
