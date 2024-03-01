@@ -50,6 +50,10 @@ public enum OrganizationType {
     }
 
     public static OrganizationType getByName(String name) throws InvalidArgument {
+        if (name.isEmpty()) {
+            throw new InvalidArgument("Type must be in " + listOfElementsPrettyView());
+        }
+
         for (var e : values()) {
             if (e.toString().equals(name) || e.name().equals(name)) {
                 return e;

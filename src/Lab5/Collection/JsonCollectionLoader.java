@@ -2,14 +2,11 @@ package Lab5.Collection;
 
 import Lab5.Exceptions.InvalidArgument;
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.AccessDeniedException;
 import java.time.LocalDate;
-import java.util.*;
-
 public class JsonCollectionLoader<T> implements CollectionLoader<T> {
     @Override
     public T load(String path, Class<? extends T> type) throws IOException {
@@ -63,8 +60,7 @@ public class JsonCollectionLoader<T> implements CollectionLoader<T> {
                     .registerTypeAdapter(OrganizationType.class, new OrganizationTypeDeserializer())
                     .create();
 
-            T resultSet = g.fromJson(jsonString.toString(), type);
-            return resultSet;
+            return g.fromJson(jsonString.toString(), type);
         } catch (FileNotFoundException e) {
             throw new FileNotFoundException(String.format("%s : no such file", path));
         } catch (IOException e) {
@@ -83,7 +79,7 @@ public class JsonCollectionLoader<T> implements CollectionLoader<T> {
         class AddressSerializer implements JsonSerializer<Address> {
             @Override
             public JsonElement serialize(Address src, Type typeOfSrc, JsonSerializationContext context) {
-                return new JsonPrimitive(src.getZipCode());
+                return new JsonPrimitive(src.toString());
             }
         }
         class OrganizationTypeSerializer implements JsonSerializer<OrganizationType> {

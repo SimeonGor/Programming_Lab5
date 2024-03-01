@@ -60,7 +60,7 @@ public class AddCommand extends Command {
             } catch (InvalidArgument e) {
                 client.receiveResponse(new Response(false, e.getMessage()));
             } catch (NumberFormatException e) {
-                client.receiveResponse(new Response(false, "it must be an integer"));
+                client.receiveResponse(new Response(false, "it must be an number"));
             }
         }
 

@@ -1,18 +1,12 @@
 package Lab5.Collection;
 
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Vector;
 
 public class MyCollection {
-    transient Comparator<Organization> comparator = new Comparator<Organization>() {
-        @Override
-        public int compare(Organization o1, Organization o2) {
-            return Long.compare(o1.getId(), o2.getId());
-        }
-    };
+    transient Comparator<Organization> comparator = (o1, o2) -> Long.compare(o1.getId(), o2.getId());
 
     private boolean order = true; // true - in ascending order, false - in descending order
     private LocalDate creationDate;
@@ -25,16 +19,11 @@ public class MyCollection {
     }
 
     public void setMaxId() {
-        maxId = Collections.max(collection, new Comparator<Organization>() {
-            @Override
-            public int compare(Organization o1, Organization o2) {
-                return Long.compare(o1.getId(), o2.getId());
-            }
-        }).getId();
+        maxId = Collections.max(collection, (o1, o2) -> Long.compare(o1.getId(), o2.getId())).getId();
     }
 
     public long genId() {
-        return maxId;
+        return maxId + 1;
     }
 
     public boolean isOrdered() {
@@ -88,7 +77,7 @@ public class MyCollection {
     }
 
     public void sort() {
-        Collections.sort(collection, comparator);
+        collection.sort(comparator);
         order = true;
     }
 

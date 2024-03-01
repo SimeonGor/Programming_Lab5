@@ -23,8 +23,8 @@ public class RemoveAtCommand extends Command {
         }
 
         try {
-            int index = getParameters(parameters) - 1;
-            collectionManager.removeAt(index);
+            int index = getParameters(parameters);
+            collectionManager.removeAt(index - 1);
             client.receiveResponse(new Response(true, String.format("The item by index %d has been successfully deleted", index)));
         }
         catch (NumberFormatException e) {
