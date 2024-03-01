@@ -10,22 +10,31 @@ public class MyCollection {
     transient Comparator<Organization> comparator = new Comparator<Organization>() {
         @Override
         public int compare(Organization o1, Organization o2) {
-            if (o1.getId() == o2.getId()) {
-                return 0;
-            }
-            else {
-                return (o1.getId() < o2.getId() ? -1 : 1);
-            }
+            return Long.compare(o1.getId(), o2.getId());
         }
     };
 
     private boolean order = true; // true - in ascending order, false - in descending order
     private LocalDate creationDate;
     private LocalDate modifiedDate;
+    private long maxId;
     private final Vector<Organization> collection;
 
     public void setCreationDate() {
         creationDate = LocalDate.now();
+    }
+
+    public void setMaxId() {
+        maxId = Collections.max(collection, new Comparator<Organization>() {
+            @Override
+            public int compare(Organization o1, Organization o2) {
+                return Long.compare(o1.getId(), o2.getId());
+            }
+        }).getId();
+    }
+
+    public long genId() {
+        return maxId;
     }
 
     public boolean isOrdered() {
@@ -54,6 +63,8 @@ public class MyCollection {
 
     public void add(Organization e) {
         collection.add(e);
+        maxId = Long.max(maxId, e.getId()) + 1;
+        if (maxId < 0) maxId = 0;
     }
 
     public void clear() {
@@ -111,7 +122,7 @@ public class MyCollection {
                         e.getCreationDate(),
                         e.getAnnualTurnover(),
                         e.getType(),
-                        e.getPostalAddress().getZipCode()
+                        e.getPostalAddress()
                         ))
                     .append("\n");
         }

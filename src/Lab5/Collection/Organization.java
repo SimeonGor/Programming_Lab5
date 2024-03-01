@@ -49,7 +49,7 @@ public class Organization {
         return "The string cannot be empty";
     }
     public void setName(String name) throws InvalidArgument {
-        if (name.isEmpty()) {
+        if (name != null && !name.isEmpty()) {
             this.name = name;
         }
         else {
@@ -70,7 +70,7 @@ public class Organization {
     }
 
     public void setAnnualTurnover(Double annualTurnover) throws InvalidArgument {
-        if (annualTurnover > 0) {
+        if (!annualTurnover.isNaN() && !annualTurnover.isInfinite() && annualTurnover > 0) {
             this.annualTurnover = annualTurnover;
         }
         else {

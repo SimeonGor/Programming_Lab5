@@ -27,6 +27,10 @@ public class CollectionManager {
         collection.sort();
     }
 
+    public void add(Organization e) {
+        collection.add(e);
+    }
+
     public MyCollection getCollection() {
         return collection;
     }

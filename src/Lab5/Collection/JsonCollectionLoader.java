@@ -88,8 +88,8 @@ public class JsonCollectionLoader<T> implements CollectionLoader<T> {
         }
         class OrganizationTypeSerializer implements JsonSerializer<OrganizationType> {
             @Override
-            public JsonElement serialize(OrganizationType type, Type typeOfT, JsonSerializationContext context) {
-                return new JsonPrimitive(type.toString());
+            public JsonElement serialize(OrganizationType organizationType, Type typeOfT, JsonSerializationContext context) {
+                return new JsonPrimitive(String.valueOf(organizationType));
             }
         }
 
