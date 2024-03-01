@@ -1,5 +1,7 @@
 package Lab5.Collection;
 
+import Lab5.Exceptions.InvalidArgument;
+
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Comparator;
@@ -65,6 +67,17 @@ public class MyCollection {
         collection.clear();
         modifiedDate = LocalDate.now();
         maxId = -1;
+    }
+
+    public void replace(long id, Organization el) throws InvalidArgument {
+        boolean isFounded = collection.removeIf((o1) -> o1.getId() == id);
+
+        if (!isFounded) {
+            throw new InvalidArgument("There is no item with id %s in the collection");
+        }
+        else {
+            collection.add(el);
+        }
     }
 
     public void removeByID(long id) {

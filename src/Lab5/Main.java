@@ -3,7 +3,6 @@ package Lab5;
 import Lab5.Collection.CollectionManager;
 import Lab5.Collection.JsonCollectionLoader;
 import Lab5.Collection.MyCollection;
-import Lab5.Collection.OrganizationType;
 import Lab5.Commands.*;
 
 import java.io.IOException;
@@ -28,6 +27,7 @@ public class Main {
             server.setCommand(new FilterGreaterThanTypeCommand(server));
             server.setCommand(new PrintFieldDescendingPostalAddressCommand(server));
             server.setCommand(new AddCommand(server));
+            server.setCommand(new UpdateCommand(server));
 
             Client client = new Client(server);
             client.main_thread();

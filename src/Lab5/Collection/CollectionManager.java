@@ -1,6 +1,8 @@
 package Lab5.Collection;
 
 
+import Lab5.Exceptions.InvalidArgument;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -73,6 +75,10 @@ public class CollectionManager {
         }
         result.sort();
         return result;
+    }
+
+    public void replace(long id, Organization el) throws InvalidArgument {
+        collection.replace(id, el);
     }
 
     public String getTypeOfElement() {

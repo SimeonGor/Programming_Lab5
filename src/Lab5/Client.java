@@ -4,7 +4,7 @@ import Lab5.Exceptions.UnknownCommandException;
 
 import java.util.Scanner;
 
-public class Client {
+public class Client{
     private final Server server;
     private final Scanner scanner;
 
