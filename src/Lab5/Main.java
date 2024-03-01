@@ -34,7 +34,7 @@ public class Main {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("the absence of an argument");
+            System.out.println("No arguments");
         }
         finally {
             ;

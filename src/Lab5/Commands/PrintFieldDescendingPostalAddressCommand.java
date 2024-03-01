@@ -13,7 +13,7 @@ import java.util.Comparator;
 
 public class PrintFieldDescendingPostalAddressCommand extends Command {
     public PrintFieldDescendingPostalAddressCommand(Server server) {
-        super(server, "print_descending_postal_address", "",
+        super(server, "print_field_descending_postal_address", "",
                 "print the values of the PostalAddress field of all elements in descending order");
     }
 
@@ -27,9 +27,16 @@ public class PrintFieldDescendingPostalAddressCommand extends Command {
 
         ArrayList<Address> addresses = new ArrayList<>();
         for (var e : collectionManager.getCollection().getCollection()) {
-            addresses.add(e.getPostalAddress());
+            if (e.getPostalAddress().getZipCode() != null) {
+                addresses.add(e.getPostalAddress());
+            }
         }
         addresses.sort((o1, o2) -> (-1) * o1.getZipCode().compareTo(o2.getZipCode()));
+
+        if (addresses.isEmpty()) {
+            client.receiveResponse(new Response(false, "There ar no postal addresses"));
+            return;
+        }
 
         StringBuilder result = new StringBuilder();
         for (var e : addresses) {

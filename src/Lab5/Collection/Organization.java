@@ -49,7 +49,7 @@ public class Organization {
         return "The string cannot be empty";
     }
     public void setName(String name) throws InvalidArgument {
-        if (name != null && !name.isEmpty()) {
+        if (name != null && !name.isEmpty() && !name.isBlank()) {
             this.name = name;
         }
         else {
