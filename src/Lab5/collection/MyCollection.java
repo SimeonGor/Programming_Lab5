@@ -152,7 +152,6 @@ public class MyCollection {
         StringBuilder result = new StringBuilder();
         result.append(header).append("\n");
         int i = 1;
-        reverse();
         for (var e : collection) {
             result.append(String.format(template,
                         i++,
@@ -167,7 +166,6 @@ public class MyCollection {
                         ))
                     .append("\n");
         }
-        reverse();
         return result.substring(0, result.length() - 1);
     }
 }
