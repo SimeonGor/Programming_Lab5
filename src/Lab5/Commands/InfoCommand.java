@@ -22,7 +22,7 @@ public class InfoCommand extends Command {
         else {
             result.append("Type: ").append(collectionManager.getTypeOfElement())
                     .append("\nCreation date: ").append(collectionManager.getCollection().getCreationDate())
-                    .append("\nModified date: ").append(collectionManager.getCollection().getModifiedDate())
+//                    .append("\nModified date: ").append(collectionManager.getCollection().getModifiedDate())
                     .append("\nSize: ").append(collectionManager.getCollection().size());
         }
 

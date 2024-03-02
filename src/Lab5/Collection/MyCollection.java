@@ -27,7 +27,7 @@ public class MyCollection {
 
     private boolean order = true; // true - in ascending order, false - in descending order
     private LocalDate creationDate;
-    private LocalDate modifiedDate;
+//    private LocalDate modifiedDate;
     private long maxId;
     private final Vector<Organization> collection;
 
@@ -55,9 +55,9 @@ public class MyCollection {
         return creationDate;
     }
 
-    public LocalDate getModifiedDate() {
-        return modifiedDate;
-    }
+//    public LocalDate getModifiedDate() {
+//        return modifiedDate;
+//    }
 
     public MyCollection() {
         this.collection = new Vector<>();
@@ -80,7 +80,7 @@ public class MyCollection {
 
     public void clear() {
         collection.clear();
-        modifiedDate = LocalDate.now();
+//        modifiedDate = LocalDate.now();
         maxId = -1;
     }
 
@@ -102,12 +102,12 @@ public class MyCollection {
 
     public void removeByID(long id) {
         collection.removeIf(t -> t.getId() == id);
-        modifiedDate = LocalDate.now();
+//        modifiedDate = LocalDate.now();
     }
 
     public void removeAt(int index) throws IndexOutOfBoundsException {
         collection.remove(index);
-        modifiedDate = LocalDate.now();
+//        modifiedDate = LocalDate.now();
     }
 
     public int size() {

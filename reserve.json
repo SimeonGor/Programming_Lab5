@@ -1,40 +1,80 @@
 {
-  "collection":[
-    {
-      "id": 0,
-      "name": "name",
-      "coordinates": {
-        "x": 0,
-        "y": 0
-      },
-      "creationDate": "2024-02-15",
-      "annualTurnover": 0.4,
-      "type": "COMMERCIAL",
-      "postalAddress": "123456789"
-    },
+  "order": true,
+  "creationDate": "2024-03-01",
+  "modifiedDate": "2024-03-01",
+  "maxId": 6,
+  "collection": [
     {
       "id": 1,
-      "name": "name",
+      "name": "qw",
       "coordinates": {
-        "x": 0,
-        "y": 0
+        "x": 1,
+        "y": 1
       },
-      "creationDate": "2024-02-15",
-      "annualTurnover": 0.4,
-      "type": "COMMERCIAL",
-      "postalAddress": "123456789"
+      "creationDate": "2024-03-01",
+      "annualTurnover": 1.0,
+      "type": "PUBLIC",
+      "postalAddress": ""
+    },
+    {
+      "id": 6,
+      "name": "1",
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "creationDate": "2024-03-02",
+      "annualTurnover": 1.0,
+      "type": "PRIVATE_LIMITED_COMPANY",
+      "postalAddress": ""
     },
     {
       "id": 2,
-      "name": "name",
+      "name": "12",
       "coordinates": {
-        "x": 0,
+        "x": 12,
+        "y": 12
+      },
+      "creationDate": "2024-03-02",
+      "annualTurnover": 12.0,
+      "type": "OPEN_JOINT_STOCK_COMPANY",
+      "postalAddress": "qwerty1234"
+    },
+    {
+      "id": 4,
+      "name": "xyq",
+      "coordinates": {
+        "x": 56,
+        "y": -90
+      },
+      "creationDate": "2024-03-02",
+      "annualTurnover": 12.0,
+      "type": "PRIVATE_LIMITED_COMPANY",
+      "postalAddress": ""
+    },
+    {
+      "id": 3,
+      "name": "xzy",
+      "coordinates": {
+        "x": 12,
         "y": 0
       },
-      "creationDate": "2024-02-15",
-      "annualTurnover": 0.4,
-      "type": "COMMERCIAL",
-      "postalAddress": "123456789"
+      "creationDate": "2024-03-02",
+      "annualTurnover": 34.0,
+      "type": "OPEN_JOINT_STOCK_COMPANY",
+      "postalAddress": "4084813130"
+    },
+    {
+      "id": 5,
+      "name": "vkus",
+      "coordinates": {
+        "x": 23,
+        "y": 199
+      },
+      "creationDate": "2024-03-02",
+      "annualTurnover": 35.0,
+      "type": "PRIVATE_LIMITED_COMPANY",
+      "postalAddress": "196.168.0.1"
     }
   ]
 }
