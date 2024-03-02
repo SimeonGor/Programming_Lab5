@@ -28,8 +28,8 @@ public class Server {
     }
 
     /**
-     * Get list of commands
-     * @return
+     * Get collection of commands
+     * @return collections of commands
      */
     public Collection<ICommand> getCommands() {
         return commands.values();

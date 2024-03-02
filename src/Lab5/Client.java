@@ -1,5 +1,6 @@
 package Lab5;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ public class Client{
      * Start main thread
      */
     public void main_thread() {
+        printResult("Print \"help\" to see available commands");
         while (true) {
             action(enterCommand());
         }
@@ -26,7 +28,13 @@ public class Client{
 
     protected String enterCommand() {
         System.out.print("\u001B[34m>>> \u001B[0m");
-        return scanner.nextLine();
+        try {
+            return scanner.nextLine();
+        } catch (NoSuchElementException e) {
+            printException("the program was interrupted");
+            System.exit(0);
+        }
+        return null;
     }
 
     protected void action(String params) {
@@ -48,12 +56,18 @@ public class Client{
 
     /**
      * method to get item parameters
-     * @param parameters_name
+     * @param parameters_name name of parameters
      * @return parameters in string form
      */
     public String getParameters(String parameters_name) {
         System.out.printf("\u001B[34mEnter %s: \u001B[0m", parameters_name);
-        return scanner.nextLine();
+        try {
+            return scanner.nextLine();
+        } catch (NoSuchElementException e) {
+            printException("the program was interrupted");
+            System.exit(0);
+        }
+        return null;
     }
 
     protected void printException(String message) {
