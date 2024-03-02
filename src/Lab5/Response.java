@@ -1,5 +1,9 @@
 package Lab5;
 
+
+/**
+ * Class to server's response
+ */
 public class Response {
     private final boolean status;
     private final String message;

@@ -1,9 +1,9 @@
 package Lab5;
 
-import Lab5.Collection.CollectionManager;
-import Lab5.Collection.JsonCollectionLoader;
-import Lab5.Collection.MyCollection;
-import Lab5.Commands.*;
+import Lab5.collection.CollectionManager;
+import Lab5.collection.JsonCollectionLoader;
+import Lab5.collection.MyCollection;
+import Lab5.commands.*;
 
 import java.io.IOException;
 

@@ -2,6 +2,9 @@ package Lab5;
 
 import Lab5.utils.CommandParser;
 
+/**
+ * Class for client's request
+ */
 public class Request {
     private final Client client;
     private final Server server;

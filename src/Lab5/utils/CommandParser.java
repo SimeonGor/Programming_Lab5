@@ -1,5 +1,8 @@
 package Lab5.utils;
 
+/**
+ * Class to parse the string containing the query
+ */
 public class CommandParser {
     private final String commandName;
     private final String parameters;
