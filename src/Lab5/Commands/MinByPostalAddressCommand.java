@@ -25,6 +25,9 @@ public class MinByPostalAddressCommand extends Command {
         client.receiveResponse(new Response(true, collectionManager.minIf(new Comparator<Organization>() {
             @Override
             public int compare(Organization o1, Organization o2) {
+                if (o1.getPostalAddress().getZipCode() == null && o2.getPostalAddress().getZipCode() == null) return 0;
+                if (o2.getPostalAddress().getZipCode() == null) return -1;
+                if (o1.getPostalAddress().getZipCode() == null) return 1;
                 return o1.getPostalAddress().getZipCode().compareTo(
                         o2.getPostalAddress().getZipCode());
             }

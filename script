@@ -10,3 +10,4 @@ qw
 public
 
 show
+execute_script script2

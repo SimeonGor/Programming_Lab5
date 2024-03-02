@@ -7,8 +7,12 @@ import Lab5.Server;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class ExecuteScriptCommand extends Command {
+
+    static private TreeSet<String> file_names = new TreeSet<>();
     public ExecuteScriptCommand(Server server) {
         super(server, "execute_script", "file_name", "execute the script from the specified file");
     }
@@ -29,6 +33,7 @@ public class ExecuteScriptCommand extends Command {
                 while (scanner.hasNext()) {
                     action(enterCommand());
                 }
+                scanner.close();
             }
 
             @Override
@@ -54,9 +59,17 @@ public class ExecuteScriptCommand extends Command {
 
         try {
             Client surrogate = new SurrogateClient(server, new FileInputStream(file));
-            surrogate.main_thread();
+            if (!file_names.contains(path)) {
+                file_names.add(path);
+                surrogate.main_thread();
+                file_names.remove(path);
+            }
+            else {
+                client.receiveResponse(new Response(false, "recursive call"));
+            }
         } catch (FileNotFoundException e) {
             client.receiveResponse(new Response(false, String.format("%s : no such file", path)));
         }
+
     }
 }
