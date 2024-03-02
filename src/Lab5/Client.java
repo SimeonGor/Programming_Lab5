@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Client{
     private final Server server;
-    private final Scanner scanner;
+    protected Scanner scanner;
 
     public Client(Server server) {
         this.server = server;
@@ -19,12 +19,12 @@ public class Client{
         }
     }
 
-    private String enterCommand() {
+    protected String enterCommand() {
         System.out.print("\u001B[34m>>> \u001B[0m");
         return scanner.nextLine();
     }
 
-    private void action(String params) {
+    protected void action(String params) {
         server.executeRequest(new Request(this, server, params));
     }
 
